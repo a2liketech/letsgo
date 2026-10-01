@@ -40,7 +40,7 @@
   }
   
   /* ==========================================================================
-     1. TOPBAR / NAVEGAÇÃO
+     1. TOPBAR / NAVEGAÃ‡ÃƒO
      ========================================================================== */
   .topbar {
     position: sticky;
@@ -224,7 +224,7 @@
   }
   
   /* ==========================================================================
-     3. ESTRUTURA GLOBAL DE SEÇÃO
+     3. ESTRUTURA GLOBAL DE SEÃ‡ÃƒO
      ========================================================================== */
   .section {
     width: min(var(--max-width), calc(100% - 40px));
@@ -530,7 +530,7 @@
     font-size: 0.65rem;
   }
   
-  /* Estilização Escura dos Popups do Leaflet */
+  /* EstilizaÃ§Ã£o Escura dos Popups do Leaflet */
   .leaflet-popup-content-wrapper, 
   .leaflet-popup-tip {
     background: #0b2432 !important;
@@ -758,7 +758,7 @@
   }
   
   /* ==========================================================================
-     8. SOBRE NÓS E CORREÇÃO DE IMAGEM (SEM CORTES)
+     8. SOBRE NÃ“S E CORREÃ‡ÃƒO DE IMAGEM (SEM CORTES)
      ========================================================================== */
   .about-grid {
     display: grid;
@@ -945,7 +945,7 @@
   }
   
   /* ==========================================================================
-     10. REGRAS DE IMPRESSÃO / PDF EXCLUSIVO (1 PÁGINA)
+     10. REGRAS DE IMPRESSÃƒO / PDF EXCLUSIVO (1 PÃGINA)
      ========================================================================== */
   @media print {
     @page {
@@ -1053,7 +1053,7 @@
     padding: 18px;
     max-width: 480px;
     border-radius: 16px;
-    background: #0b2432;;
+    background: #0b2432;
     border: 1px solid var(--line-color);
   }
   
@@ -1163,3 +1163,108 @@
       color: #888 !important;
     }
   }
+
+
+/* ==========================================================================
+   12. AJUSTES RESPONSIVOS â€” CLIMA E CAMPINGS
+   ========================================================================== */
+
+select,
+input,
+textarea {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+}
+
+img,
+iframe,
+video {
+  max-width: 100%;
+}
+
+.camping-partner-cta {
+  width: min(100%, 480px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  h1,
+  h2,
+  h3,
+  p,
+  label {
+    overflow-wrap: break-word;
+  }
+
+  select,
+  .weather-container select,
+  .weather-card select,
+  .weather-widget select,
+  .weather-section select,
+  #campingSelect,
+  #weatherCampingSelect {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 12px 36px 12px 12px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .weather-container,
+  .weather-card,
+  .weather-widget,
+  .weather-section,
+  .weather-content,
+  .weather-panel {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .weather-container *,
+  .weather-card *,
+  .weather-widget *,
+  .weather-section *,
+  .weather-content *,
+  .weather-panel * {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .camping-partner-cta {
+    margin: 16px auto 22px;
+    padding: 16px;
+  }
+
+  .btn-add-camping {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    padding: 12px 16px;
+  }
+
+  .section {
+    width: calc(100% - 28px);
+  }
+}
+
+@media (max-width: 380px) {
+  .camping-partner-cta {
+    padding: 14px 12px;
+  }
+
+  .btn-add-camping {
+    width: 100%;
+    gap: 7px;
+    font-size: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+}
