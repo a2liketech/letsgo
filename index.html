@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>letsgo_camping_sc — Acampando em Família por Santa Catarina</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <!-- html2pdf Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Folha de Estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="topbar" id="inicio">
+    <a class="brand" href="#inicio">
+      <img src="logo.jpeg" alt="Logo letsgo_camping_sc" class="brand-logo-img">
+      <div class="brand-copy">
+        <strong>letsgo_camping_sc</strong>
+        <small>SANTA CATARINA • BRASIL</small>
+      </div>
+    </a>
+
+    <nav class="desktop-nav">
+      <a class="active" href="#mapa">MAPA DE DESTINOS</a>
+      <a href="#previsao-tempo">PREVISÃO DO TEMPO</a>
+      <a href="#calculadora">CALCULADORA</a>
+      <a href="#checklist">CHECKLIST</a>
+      <a href="#sobre">NOSSA HISTÓRIA</a>
+    </nav>
+
+    <div class="header-socials">
+      <a class="social-top" href="https://instagram.com/letsgo_camping_sc" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <img src="logo.jpeg" alt="Mascote Pudim" class="hero-avatar">
+          <span>Acampamento em Família + Pudim 🐶</span>
+        </div>
+        <h1>Explorando Santa Catarina.<br><span>Uma barraca por vez.</span></h1>
+        <p>Registramos nossas viagens em família, acampamentos de barraca, perrengues reais e compartilhamos indicações sinceras dos melhores equipamentos para acampar na natureza.</p>
+        
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://instagram.com/letsgo_camping_sc" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i> Acompanhar no Instagram
+          </a>
+          <a class="btn btn-glass" href="#mapa">Ver onde acampamos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="whatsapp-members-hero section-anchor" id="comunidade">
+      <div class="whatsapp-members-inner">
+        <div class="whatsapp-phone-wrap">
+          <div class="whatsapp-phone">
+            <div class="whatsapp-phone-notch"></div>
+            <img src="logo.jpeg" alt="Família no acampamento">
+            <div class="whatsapp-phone-shade"></div>
+            <div class="whatsapp-phone-ui">
+              <span class="whatsapp-mini-logo"><i class="fa-solid fa-campground"></i></span>
+              <small>COMUNIDADE CAMPISTA</small>
+              <strong>Dicas de Camping em SC</strong>
+              <span>Fotos, roteiros e recomendações em tempo real.</span>
+            </div>
+          </div>
+          <span class="whatsapp-float-bubble whatsapp-float-one">⛺</span>
+          <span class="whatsapp-float-bubble whatsapp-float-two">🌲</span>
+        </div>
+
+        <div class="whatsapp-members-copy">
+          <span class="whatsapp-exclusive-pill">★ COMUNIDADE OFICIAL</span>
+          <h2>ACOMPANHE <span>NOSSAS VIAGENS</span></h2>
+          <p>Receba em primeira mão nossas avaliações de campings, locais pet-friendly para ir com seu cão e cupons de desconto em equipamentos de acampamento.</p>
+
+          <div class="whatsapp-member-benefits">
+            <span><b>✓</b> Avaliação real de campings em SC</span>
+            <span><b>✓</b> Dicas de locais Pet Friendly</span>
+            <span><b>✓</b> Links diretos de equipamentos testados</span>
+          </div>
+
+          <div class="whatsapp-access-card">
+            <div class="whatsapp-access-status">
+              <i></i>
+              <div>
+                <small>INSTAGRAM OFICIAL</small>
+                <strong>Siga @letsgo_camping_sc no Instagram</strong>
+              </div>
+            </div>
+            <a class="whatsapp-open-group" href="https://instagram.com/letsgo_camping_sc" target="_blank" rel="noopener">
+              ABRIR PERFIL NO INSTAGRAM ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-anchor" id="mapa">
+      <div class="section-heading" style="text-align: center; margin-bottom: 20px;">
+        <span class="eyebrow">Destinos Visitados</span>
+        <h2>Onde Já Montamos Acampamento</h2>
+      </div>
+
+      <div class="map-filters-bar">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> Todos</button>
+        <button class="filter-btn" data-filter="pet"><i class="fa-solid fa-dog"></i> Pet Friendly</button>
+        <button class="filter-btn" data-filter="cozinha"><i class="fa-solid fa-utensils"></i> Com Cozinha</button>
+        <button class="filter-btn" data-filter="energia"><i class="fa-solid fa-bolt"></i> Com Energia</button>
+      </div>
+
+      <div class="member-map-shell">
+        <div id="map"></div>
+
+        <!-- <div class="live-current-place">
+          <small>PONTO DE PARTIDA</small>
+          <strong>Fazenda Evaristo — Rio Negrinho / SC</strong>
+          <span class="live-pulse-row"><i></i><b>LOCAL DESTACADO</b></span>
+        </div> -->
+
+        <div class="trip-stat-pill">
+          <div class="trip-stat-card">
+            <span class="stat-icon"><i class="fa-solid fa-campground"></i></span>
+            <div>
+              <strong id="campingsCount">2+</strong>
+              <small>campings na lista</small>
+            </div>
+          </div>
+          <div class="trip-stat-card">
+            <span class="stat-icon"><i class="fa-solid fa-users"></i></span>
+            <div>
+              <strong>4</strong>
+              <small>aventureiros</small>
+            </div>
+          </div>
+          <div class="trip-stat-card">
+            <span class="stat-icon"><i class="fa-solid fa-dog"></i></span>
+            <div>
+              <strong>1</strong>
+              <small>mascote (Pudim 🐶)</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-anchor" id="previsao-tempo">
+      <div class="section-heading" style="text-align: center; margin-bottom: 30px;">
+        <span class="eyebrow">Planejamento de Campo</span>
+        <h2>🌦️ Clima & Vento nos Campings</h2>
+      </div>
+
+
+      <div class="calc-card" style="max-width: 800px; margin: 0 auto;">
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: center; margin-bottom: 25px;">
+          <label for="selectCampingWeather" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.9rem;">
+            Selecione o Camping:
+          </label>
+          <select id="selectCampingWeather" style="background: rgba(255,255,255,0.08); border: 1px solid var(--line-color); color: var(--text-light); padding: 10px 18px; border-radius: 12px; font-size: 0.9rem; outline: none; cursor: pointer;">
+          </select>
+        </div>
+
+        <div id="weatherDisplay" class="calc-results-grid" style="border-top: none; padding-top: 0;">
+          <div class="res-card">
+            <i class="fa-solid fa-temperature-half"></i>
+            <span id="weatherTemp" class="res-value">--°C</span>
+            <span class="res-label">Temperatura Atual</span>
+          </div>
+          <div class="res-card">
+            <i class="fa-solid fa-wind"></i>
+            <span id="weatherWind" class="res-value">-- km/h</span>
+            <span class="res-label">Velocidade do Vento</span>
+          </div>
+          <div class="res-card">
+            <i class="fa-solid fa-cloud-rain"></i>
+            <span id="weatherRain" class="res-value">--%</span>
+            <span class="res-label">Chance de Chuva</span>
+          </div>
+        </div>
+        <p id="weatherStatus" style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 15px;">
+          Carregando previsão...
+        </p>
+      </div>
+
+      <div class="camping-partner-cta">
+        <p>
+          Seu camping ainda não está na nossa lista?
+          Solicite a inclusão gratuitamente!
+        </p>
+      
+        <a
+          href="#"
+          id="btnAddCampingWhatsApp"
+          class="btn-add-camping"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>📍</span>
+          Incluir meu camping
+          <span>→</span>
+        </a>
+      </div>
+    </section>
+    
+
+    <section class="section section-anchor" id="calculadora">
+      <div class="section-heading" style="text-align: center; margin-bottom: 30px;">
+        <span class="eyebrow">Ferramenta Útil</span>
+        <h2>Calculadora de Suprimentos</h2>
+      </div>
+
+      <div class="calc-card" style="max-width: 800px; margin: 0 auto;">
+        <div class="calc-inputs-grid">
+          <div class="input-group">
+            <label for="calcAdultos">Adultos</label>
+            <input type="number" id="calcAdultos" value="2" min="1">
+          </div>
+          <div class="input-group">
+            <label for="calcCriancas">Crianças</label>
+            <input type="number" id="calcCriancas" value="2" min="0">
+          </div>
+          <div class="input-group">
+            <label for="calcDias">Dias de Camping</label>
+            <input type="number" id="calcDias" value="2" min="1">
+          </div>
+        </div>
+
+        <div class="calc-results-grid">
+          <div class="res-card">
+            <i class="fa-solid fa-bottle-water"></i>
+            <span id="resAgua" class="res-value">18L</span>
+            <span class="res-label">Água Potável</span>
+          </div>
+          <div class="res-card">
+            <i class="fa-solid fa-drumstick-bite"></i>
+            <span id="resComida" class="res-value">2.4kg</span>
+            <span class="res-label">Carne / Proteína</span>
+          </div>
+          <div class="res-card">
+            <i class="fa-solid fa-fire"></i>
+            <span id="resCarvao" class="res-value">4kg</span>
+            <span class="res-label">Carvão / Lenha</span>
+          </div>
+          <div class="res-card">
+            <i class="fa-solid fa-bread-slice"></i>
+            <span id="resPao" class="res-value">8</span>
+            <span class="res-label">Pães / Lanches</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-anchor" id="checklist">
+      <div class="section-heading" style="text-align: center; margin-bottom: 30px;">
+        <span class="eyebrow">Não Esqueça Nada</span>
+        <h2>Checklist Essencial de Camping</h2>
+      </div>
+
+      <div class="checklist-card" id="checklistPrintArea" style="max-width: 900px; margin: 0 auto;">
+        <div class="print-header">
+          <img src="logo.jpeg" alt="Logo" class="print-logo">
+          <div class="print-header-text">
+            <h2>letsgo_camping_sc — Checklist Oficial</h2>
+            <p>Anotações e preparação para o próximo acampamento em Santa Catarina.</p>
+          </div>
+        </div>
+
+        <div class="checklist-header-actions">
+          <div>
+            <div class="checklist-progress-bar">
+              <div class="progress-fill" id="checklistProgress"></div>
+            </div>
+            <span class="checklist-status" id="checklistStatus">0% concluído</span>
+          </div>
+          <button class="btn btn-pdf" id="btnExportPDF">
+            <i class="fa-solid fa-file-pdf"></i> Salvar PDF
+          </button>
+        </div>
+
+        <div class="checklist-grid">
+          <div class="checklist-group" data-category="pernoite">
+            <h3><i class="fa-solid fa-bed"></i> Pernoite & Abrigo</h3>
+            <div class="items-list">
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Barraca + Espeques</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Lona para o Chão / Teto</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Saco de Dormir / Cobertores</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Colchão Inflável + Bomba</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Travesseiros Compactos</span></label>
+            </div>
+            <div class="add-item-box">
+              <input type="text" class="input-new-item" placeholder="Adicionar item...">
+              <button class="btn-add-item">+</button>
+            </div>
+          </div>
+
+          <div class="checklist-group" data-category="cozinha">
+            <h3><i class="fa-solid fa-utensils"></i> Cozinha de Campo</h3>
+            <div class="items-list">
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Fogareiro / Espeto</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Gás Extra / Carvão</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Panelas, Pratos e Talheres</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Cooler com Gelo</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Detergente + Esponja</span></label>
+            </div>
+            <div class="add-item-box">
+              <input type="text" class="input-new-item" placeholder="Adicionar item...">
+              <button class="btn-add-item">+</button>
+            </div>
+          </div>
+
+          <div class="checklist-group" data-category="pessoal">
+            <h3><i class="fa-solid fa-shirt"></i> Pessoal & Pets</h3>
+            <div class="items-list">
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Ração e Potes do Pudim 🐶</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Guia e Peitoral Pet</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Lanterna de Cabeça</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Repelente e Protetor Solar</span></label>
+              <label class="check-item"><input type="checkbox" class="chk-item"> <span>Kit Primeiros Socorros</span></label>
+            </div>
+            <div class="add-item-box">
+              <input type="text" class="input-new-item" placeholder="Adicionar item...">
+              <button class="btn-add-item">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-anchor" id="sobre">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Sobre Nós</span>
+          <h2>Família, Natureza e o Mascote Pudim</h2>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <article class="about-copy-card">
+          <span class="mini-label">letsgo_camping_sc</span>
+          <h3>Transformando finais de semana em memórias.</h3>
+          <p class="about-lead">Somos uma família apaixonada pela vida ao ar livre, acampando de barraca pelas paisagens incríveis de Santa Catarina.</p>
+          <p>Compartilhamos nossas experiências com total transparência: os melhores locais, infraestrutura dos campings, equipamentos que valem o investimento e a rotina de viajar com o nosso cãozinho Pudim.</p>
+          <div class="dog-tags">
+            <span>⛺ Camping de Barraca</span>
+            <span>🌲 Santa Catarina</span>
+            <span>🐶 Pet Friendly</span>
+          </div>
+        </article>
+
+        <figure class="photo-card family-photo">
+          <img src="logo.jpeg" alt="Família letsgo_camping_sc">
+          <figcaption>A família reunida na fogueira com o Pudim 🐶</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="trip-dock-v105">
+    <a class="trip-dock-brand" href="#inicio">
+      <span class="trip-dock-pulse"></span>
+      <span><strong>letsgo_camping_sc</strong><small>Santa Catarina ⛺</small></span>
+    </a>
+    <span class="trip-dock-separator"></span>
+    <a href="#mapa" class="trip-dock-member"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
+    <a href="#previsao-tempo">Tempo</a>
+    <a href="#calculadora">Calculadora</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#sobre">História</a>
+  </aside>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
