@@ -1153,6 +1153,7 @@ function initWeatherWidget() {
     initChecklist();
     initWeatherWidget();
     initCampingWhatsApp();
+    initNtkAffiliate();
   });
 
 /* =========================================================

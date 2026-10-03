@@ -1188,6 +1188,198 @@ video {
   box-sizing: border-box;
 }
 
+/* ==========================================================================
+   PARCERIA NTK
+   ========================================================================== */
+
+   .ntk-partner-card {
+    width: 100%;
+    max-width: 680px;
+    margin: 24px auto;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  
+    background: var(--bg-card);
+    border: 1px solid var(--line-color);
+    border-radius: 20px;
+  
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ntk-partner-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+  
+    display: grid;
+    place-items: center;
+  
+    background: rgba(78, 214, 255, 0.08);
+    border: 1px solid rgba(78, 214, 255, 0.2);
+    border-radius: 16px;
+  
+    font-size: 30px;
+  }
+  
+  .ntk-partner-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .ntk-partner-label {
+    display: block;
+    margin-bottom: 5px;
+  
+    color: var(--accent-cyan);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+  
+  .ntk-partner-content h3 {
+    margin: 0 0 6px;
+  
+    color: var(--text-light);
+    font-size: 1.25rem;
+    font-weight: 800;
+  }
+  
+  .ntk-partner-content p {
+    margin: 0 0 15px;
+  
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+  
+  /* CUPOM */
+  
+  .ntk-coupon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    margin-bottom: 14px;
+  }
+  
+  .ntk-coupon > span {
+    flex: 1;
+  
+    padding: 11px 14px;
+  
+    background: rgba(247, 191, 68, 0.08);
+    border: 1px dashed rgba(247, 191, 68, 0.5);
+    border-radius: 10px;
+  
+    color: var(--accent-gold);
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
+  .ntk-copy-btn {
+    border: 1px solid var(--line-color);
+    border-radius: 10px;
+  
+    padding: 11px 14px;
+  
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+  
+    font-size: 0.8rem;
+    font-weight: 700;
+  
+    cursor: pointer;
+  
+    transition: all 0.2s ease;
+  }
+  
+  .ntk-copy-btn:hover {
+    background: rgba(78, 214, 255, 0.1);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+  
+  /* BOTÃO NTK */
+  
+  .ntk-shop-btn {
+    width: 100%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  
+    padding: 13px 18px;
+  
+    border-radius: 12px;
+  
+    background: var(--accent-cyan);
+    color: #07161f;
+  
+    font-size: 0.9rem;
+    font-weight: 900;
+  
+    transition: all 0.2s ease;
+  }
+  
+  .ntk-shop-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+  }
+  
+  .ntk-shop-btn span {
+    font-size: 1.1rem;
+  }
+  
+  /* MENSAGEM DE COPIADO */
+  
+  .ntk-copy-message {
+    display: block;
+  
+    min-height: 18px;
+    margin-top: 8px;
+  
+    color: var(--accent-green);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  /* MOBILE */
+  
+  @media (max-width: 600px) {
+  
+    .ntk-partner-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px 16px;
+      gap: 12px;
+    }
+  
+    .ntk-partner-icon {
+      width: 56px;
+      height: 56px;
+      font-size: 26px;
+    }
+  
+    .ntk-coupon {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .ntk-coupon > span,
+    .ntk-copy-btn {
+      width: 100%;
+    }
+  
+    .ntk-copy-btn {
+      padding: 12px;
+    }
+  }
+
 @media (max-width: 768px) {
   h1,
   h2,
